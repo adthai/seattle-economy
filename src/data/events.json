@@ -1,8 +1,99 @@
 [
-  {"name": "Sputnik 1", "year": 1957, "y": 10},
-  {"name": "Apollo 11", "year": 1969, "y": 20},
-  {"name": "Viking 1 and 2", "year": 1975, "y": 30},
-  {"name": "Space Shuttle Columbia", "year": 1981, "y": 40},
-  {"name": "Hubble Space Telescope", "year": 1990, "y": 50},
-  {"name": "ISS Construction", "year": 1998, "y": 60}
+  {
+    "event": "Founding of Seattle",
+    "start": 1851,
+    "end": 1852,
+    "startLabel": null,
+    "endLabel": null
+  },
+
+  {
+    "event": "Logging Emerges",
+    "start": 1860,
+    "end": 1880,
+    "startLabel": null,
+    "endLabel": null
+  },
+
+  {
+    "event": "Usage of the Railroad",
+    "start": 1880,
+    "end": 1890,
+    "startLabel": null,
+    "endLabel": null
+  },
+
+  {
+    "event": "Kondlike Gold Rush",
+    "start": 1897,
+    "end": 1899,
+    "startLabel": null,
+    "endLabel": null
+  },
+
+  {
+    "event": "Opening of Ship Canal",
+    "start": 1907,
+    "end": 1908,
+    "startLabel": null,
+    "endLabel": null
+  },
+
+  {
+    "event": "Emergence of Boeing Company",
+    "start": 1910,
+    "end": 1930,
+    "startLabel": null,
+    "endLabel": null
+  },
+
+  {
+    "event": "Great Depression",
+    "start": 1930,
+    "end": 1940,
+    "startLabel": null,
+    "endLabel": null
+  },
+  {
+    "event": "World War II",
+    "start": 1939,
+    "end": 1945,
+    "startLabel": null,
+    "endLabel": null
+  },
+  {
+    "event": "Post-War Expansion",
+    "start": 1950,
+    "end": 1970,
+    "startLabel": null,
+    "endLabel": null
+  },
+  {
+    "event": "Emergence of Technology / Microsoft",
+    "start": 1970,
+    "end": 1990,
+    "startLabel": null,
+    "endLabel": null
+  },
+  {
+    "event": "Arrival of Amazon",
+    "start": 2000,
+    "end": 2010,
+    "startLabel": null,
+    "endLabel": null
+  },
+  {
+    "event": "Huge Economic Growth",
+    "start": 2010,
+    "end": 2020,
+    "startLabel": null,
+    "endLabel": null
+  },
+  {
+    "event": "COVID-19",
+    "start": 2020,
+    "end": 2024,
+    "startLabel": null,
+    "endLabel": null
+  }
 ]
