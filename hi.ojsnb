@@ -1,0 +1,34 @@
+{
+    "id": "e3fcbe7f-1b27-4983-85e7-f0b4c48a257c",
+    "files": [],
+    "nodes": [
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "import {FileAttachment} from \"npm:@andy-thai2/map-of-seattle-with-neighborhoods\";",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-1",
+            "name": "",
+            "value": "curr_sea_dist_raw = FileAttachment(\"Neighborhood_Map_Atlas_Neighborhoods@1.geojson\").json();\n",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-2",
+            "name": "",
+            "value": "",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-3",
+            "name": "",
+            "value": "voronoiMap2 = {\n  let ordinalRand = d3.schemeSet3;\n  var defFillv,\n      defRb = \"1.5px\",\n      defFillb = \"black\",\n      defFillgL = \"rgb(209, 209, 209)\",\n      defFillgR = \"white\",\n      defOpv = \"0.4\",\n      defFillbR = \"none\";\n \n  var tooltip = d3.select(\"body\")\n\t.append(\"div\")\n\t.style(\"position\", \"absolute\")\n\t.style(\"z-index\", \"10\")\n    .style(\"visibility\", \"hidden\")\n    .attr(\"class\", \"tooltip\")\n    .style(\"font-family\", \"Lato\")\n\n  \n  var div = d3.create('div');\n  var projection = d3.geoEquirectangular().scale([145000]).center(markers[0].geometry.coordinates);\n  var path = d3.geoPath().projection(projection);\n  \n  const svg = div.append(\"svg\").attr(\"width\", width).attr(\"height\", 600);\n\n    // SVG Canvas\n   svg.selectAll('.curr_sea_dist')\n        .data(curr_sea_dist)\n        .enter().append(\"path\")\n        .attr(\"d\", path)\n        .attr(\"id\", function(d,i) { return `l1${d.properties.fid}`})\n        .attr(\"fill\", defFillgL)\n        .attr(\"stroke\", \"white\")\n        .attr(\"stroke-width\", \"1px\")\n        .on('mouseover', function(e,d) {\n          tooltip.style(\"visibility\", \"visible\").html(d.properties.geographicalName);\n          d3.select(this).attr(\"stroke-width\", \"2.5px\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgR);\n          })\n        .on('mouseover', function(e, d) {\n          defFillv = d3.select(this).attr(\"fill\");\n          d3.select(this).attr(\"fill\", \"yellow\").attr(\"opacity\", \"0.6\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgR);\n          tooltip.style(\"visibility\", \"visible\").html(`District: ${d.properties.L_HOOD}`);\n      })\n      .on(\"mousemove\", function(e, d){return tooltip.style(\"top\", (e.pageY-10)+\"px\").style(\"left\",(e.pageX+20)+\"px\");})\n      .on('mouseout', function(e, d) {\n          d3.select(this).attr(\"fill\", defFillgL).attr(\"opacity\", \"1.0\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgL).attr(\"opacity\", \"1.0\");\n          tooltip.style(\"visibility\", \"hidden\");\n      });\n\n  return div.node()\n}",
+            "mode": "js",
+            "outputs": []
+        }
+    ]
+}

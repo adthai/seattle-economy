@@ -1,0 +1,14 @@
+{
+  "name": "@andy-thai2/map-of-seattle-with-neighborhoods",
+  "main": "04dd263781d5a50e@52.js",
+  "version": "52.0.0",
+  "homepage": "https://observablehq.com/@andy-thai2/map-of-seattle-with-neighborhoods",
+  "author": {
+    "name": "Andy Thai",
+    "url": "https://observablehq.com/@andy-thai2"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}

@@ -1,0 +1,127 @@
+{
+    "id": "04dd263781d5a50e",
+    "slug": "map-of-seattle-with-neighborhoods",
+    "trashed": false,
+    "description": "",
+    "likes": 0,
+    "publish_level": "live_unlisted",
+    "forks": 0,
+    "fork_of": null,
+    "has_importers": false,
+    "update_time": "2024-07-08T21:01:32.831Z",
+    "first_public_version": 52,
+    "paused_version": null,
+    "publish_time": "2024-07-08T21:54:14.071Z",
+    "publish_version": 52,
+    "latest_version": 52,
+    "thumbnail": "fb0a7ef0a03bcb27ecc6a34dcadb1db91f660f72c773aa7fd0a1894f6e013fb3",
+    "default_thumbnail": "fb0a7ef0a03bcb27ecc6a34dcadb1db91f660f72c773aa7fd0a1894f6e013fb3",
+    "roles": [],
+    "sharing": null,
+    "edits": [
+        {
+            "node_id": 7,
+            "value": "voronoiMap2 = {\n  let ordinalRand = d3.schemeSet3;\n  var defFillv,\n      defRb = \"1.5px\",\n      defFillb = \"black\",\n      defFillgL = \"rgb(209, 209, 209)\",\n      defFillgR = \"white\",\n      defOpv = \"0.4\",\n      defFillbR = \"none\";\n \n  var tooltip = d3.select(\"body\")\n\t.append(\"div\")\n\t.style(\"position\", \"absolute\")\n\t.style(\"z-index\", \"10\")\n    .style(\"visibility\", \"hidden\")\n    .attr(\"class\", \"tooltip\")\n    .style(\"font-family\", \"Lato\")\n\n  \n  var div = d3.create('div');\n  var projection = d3.geoEquirectangular().scale([145000]).center(markers[0].geometry.coordinates);\n  var path = d3.geoPath().projection(projection);\n  \n  const svg = div.append(\"svg\").attr(\"width\", width).attr(\"height\", 600);\n\n    // SVG Canvas\n   svg.selectAll('.curr_sea_dist')\n        .data(curr_sea_dist)\n        .enter().append(\"path\")\n        .attr(\"d\", path)\n        .attr(\"id\", function(d,i) { return `l1${d.properties.fid}`})\n        .attr(\"fill\", defFillgL)\n        .attr(\"stroke\", \"white\")\n        .attr(\"stroke-width\", \"1px\")\n        .on('mouseover', function(e,d) {\n          tooltip.style(\"visibility\", \"visible\").html(d.properties.geographicalName);\n          d3.select(this).attr(\"stroke-width\", \"2.5px\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgR);\n          })\n        .on('mouseover', function(e, d) {\n          defFillv = d3.select(this).attr(\"fill\");\n          d3.select(this).attr(\"fill\", \"yellow\").attr(\"opacity\", \"0.6\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgR);\n          tooltip.style(\"visibility\", \"visible\").html(`District: ${d.properties.L_HOOD}`);\n      })\n      .on(\"mousemove\", function(e, d){return tooltip.style(\"top\", (e.pageY-10)+\"px\").style(\"left\",(e.pageX+20)+\"px\");})\n      .on('mouseout', function(e, d) {\n          d3.select(this).attr(\"fill\", defFillgL).attr(\"opacity\", \"1.0\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgL).attr(\"opacity\", \"1.0\");\n          tooltip.style(\"visibility\", \"hidden\");\n      });\n\n  return div.node()\n}"
+        }
+    ],
+    "owner": {
+        "id": "0135c59dec57049a",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/80498d6e9326c7925958ff4b5fe713851c8520978c693f31a9b38002962df94c",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "type": "team",
+        "tier": "starter_2024"
+    },
+    "creator": {
+        "id": "40de5409b80a4718",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "tier": "public"
+    },
+    "authors": [
+        {
+            "id": "40de5409b80a4718",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+            "name": "Andy Thai",
+            "login": "andy-thai2",
+            "bio": "",
+            "home_url": "",
+            "tier": "public",
+            "approved": true,
+            "description": ""
+        }
+    ],
+    "collections": [],
+    "files": [
+        {
+            "id": "83d684f248abbc7a49def60ab9d7fc13bf4ad82d145c2f5ba416449ddde2f4d49c708679ab4e45c5815db87c8b00794529f17bc0e684ddf3b86addcbc974095c",
+            "url": "https://static.observableusercontent.com/files/83d684f248abbc7a49def60ab9d7fc13bf4ad82d145c2f5ba416449ddde2f4d49c708679ab4e45c5815db87c8b00794529f17bc0e684ddf3b86addcbc974095c",
+            "download_url": "https://static.observableusercontent.com/files/83d684f248abbc7a49def60ab9d7fc13bf4ad82d145c2f5ba416449ddde2f4d49c708679ab4e45c5815db87c8b00794529f17bc0e684ddf3b86addcbc974095c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27Neighborhood_Map_Atlas_Neighborhoods%25401.geojson",
+            "name": "Neighborhood_Map_Atlas_Neighborhoods@1.geojson",
+            "create_time": "2024-07-06T22:53:48.149Z",
+            "mime_type": "application/geo+json",
+            "status": "public",
+            "size": 2052585,
+            "content_encoding": null,
+            "private_bucket_id": null
+        }
+    ],
+    "comments": [],
+    "commenting_lock": null,
+    "suggestion_from": null,
+    "suggestions_to": [],
+    "version": 52,
+    "title": "Map of Seattle with Neighborhoods",
+    "license": null,
+    "copyright": "",
+    "nodes": [
+        {
+            "id": 0,
+            "value": "# Map of Seattle with Neighborhoods\n",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 4,
+            "value": "curr_sea_dist_raw = FileAttachment(\"Neighborhood_Map_Atlas_Neighborhoods@1.geojson\").json()",
+            "pinned": true,
+            "mode": "js",
+            "data": {},
+            "name": null
+        },
+        {
+            "id": 14,
+            "value": "curr_sea_dist = curr_sea_dist_raw.features",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 12,
+            "value": "markers = [\n  {\n    \"type\": \"Feature\",\n    \"geometry\": {\n      \"type\": \"Point\",\n      \"coordinates\": [\n        -122.2573,\n        47.6259\n      ]\n    }\n  }\n]",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 7,
+            "value": "voronoiMap2 = {\n  let ordinalRand = d3.schemeSet3;\n  var defFillv,\n      defRb = \"1.5px\",\n      defFillb = \"black\",\n      defFillgL = \"rgb(209, 209, 209)\",\n      defFillgR = \"white\",\n      defOpv = \"0.4\",\n      defFillbR = \"none\";\n \n  var tooltip = d3.select(\"body\")\n\t.append(\"div\")\n\t.style(\"position\", \"absolute\")\n\t.style(\"z-index\", \"10\")\n    .style(\"visibility\", \"hidden\")\n    .attr(\"class\", \"tooltip\")\n    .style(\"font-family\", \"Lato\")\n\n  \n  var div = d3.create('div');\n  var projection = d3.geoEquirectangular().scale([145000]).center(markers[0].geometry.coordinates);\n  var path = d3.geoPath().projection(projection);\n  \n  const svg = div.append(\"svg\").attr(\"width\", width).attr(\"height\", 600);\n\n    // SVG Canvas\n   svg.selectAll('.curr_sea_dist')\n        .data(curr_sea_dist)\n        .enter().append(\"path\")\n        .attr(\"d\", path)\n        .attr(\"id\", function(d,i) { return `l1${d.properties.fid}`})\n        .attr(\"fill\", defFillgL)\n        .attr(\"stroke\", \"white\")\n        .attr(\"stroke-width\", \"1px\")\n        .on('mouseover', function(e,d) {\n          tooltip.style(\"visibility\", \"visible\").html(d.properties.geographicalName);\n          d3.select(this).attr(\"stroke-width\", \"2.5px\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgR);\n          })\n        .on('mouseover', function(e, d) {\n          defFillv = d3.select(this).attr(\"fill\");\n          d3.select(this).attr(\"fill\", \"yellow\").attr(\"opacity\", \"0.6\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgR);\n          tooltip.style(\"visibility\", \"visible\").html(`District: ${d.properties.L_HOOD}`);\n      })\n      .on(\"mousemove\", function(e, d){return tooltip.style(\"top\", (e.pageY-10)+\"px\").style(\"left\",(e.pageX+20)+\"px\");})\n      .on('mouseout', function(e, d) {\n          d3.select(this).attr(\"fill\", defFillgL).attr(\"opacity\", \"1.0\");\n          var thisPara = d3.select(`#l1${d.properties.OBJECTID}`);\n          thisPara.attr(\"fill\", defFillgL).attr(\"opacity\", \"1.0\");\n          tooltip.style(\"visibility\", \"hidden\");\n      });\n\n  return div.node()\n}",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        }
+    ],
+    "resolutions": [],
+    "schedule": null,
+    "last_view_time": null
+}
