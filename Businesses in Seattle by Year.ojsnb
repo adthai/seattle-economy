@@ -1,0 +1,209 @@
+{
+    "id": "cab2d1a070c62e3e",
+    "slug": "businesses-in-seattle-by-year",
+    "trashed": false,
+    "description": "",
+    "likes": 0,
+    "publish_level": "live_unlisted",
+    "forks": 0,
+    "fork_of": null,
+    "has_importers": true,
+    "update_time": "2024-07-10T19:45:58.052Z",
+    "first_public_version": 52,
+    "paused_version": null,
+    "publish_time": null,
+    "publish_version": 216,
+    "latest_version": 216,
+    "thumbnail": "54a3d701eb758e1a0b4f365ee1cb2c62170cf82e00e5a369d031656325e680f7",
+    "default_thumbnail": "54a3d701eb758e1a0b4f365ee1cb2c62170cf82e00e5a369d031656325e680f7",
+    "roles": [],
+    "sharing": null,
+    "edits": [
+        {
+            "node_id": 61,
+            "value": "SELECT cast(DATE as datetime) AS period, ATNHPIUS42644Q as price FROM housing_price WHERE MONTH(period)=1 AND YEAR(period) between 2010 and 2024;"
+        }
+    ],
+    "owner": {
+        "id": "0135c59dec57049a",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/80498d6e9326c7925958ff4b5fe713851c8520978c693f31a9b38002962df94c",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "type": "team",
+        "tier": "starter_2024"
+    },
+    "creator": {
+        "id": "40de5409b80a4718",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "tier": "public"
+    },
+    "authors": [
+        {
+            "id": "40de5409b80a4718",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+            "name": "Andy Thai",
+            "login": "andy-thai2",
+            "bio": "",
+            "home_url": "",
+            "tier": "public",
+            "approved": true,
+            "description": ""
+        }
+    ],
+    "collections": [],
+    "files": [
+        {
+            "id": "83d684f248abbc7a49def60ab9d7fc13bf4ad82d145c2f5ba416449ddde2f4d49c708679ab4e45c5815db87c8b00794529f17bc0e684ddf3b86addcbc974095c",
+            "url": "https://static.observableusercontent.com/files/83d684f248abbc7a49def60ab9d7fc13bf4ad82d145c2f5ba416449ddde2f4d49c708679ab4e45c5815db87c8b00794529f17bc0e684ddf3b86addcbc974095c",
+            "download_url": "https://static.observableusercontent.com/files/83d684f248abbc7a49def60ab9d7fc13bf4ad82d145c2f5ba416449ddde2f4d49c708679ab4e45c5815db87c8b00794529f17bc0e684ddf3b86addcbc974095c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27Neighborhood_Map_Atlas_Neighborhoods%25401.geojson",
+            "name": "Neighborhood_Map_Atlas_Neighborhoods@1.geojson",
+            "create_time": "2024-07-08T22:06:41.270Z",
+            "mime_type": "application/geo+json",
+            "status": "public",
+            "size": 2052585,
+            "content_encoding": null,
+            "private_bucket_id": null
+        },
+        {
+            "id": "c983884de6f39603043dc052d00a07282de39aa2784029a41060e8e4a403076006ff74e39dbcf3670a5c3535c9309596489829e4328a1894e818e13c833b4427",
+            "url": "https://static.observableusercontent.com/files/c983884de6f39603043dc052d00a07282de39aa2784029a41060e8e4a403076006ff74e39dbcf3670a5c3535c9309596489829e4328a1894e818e13c833b4427",
+            "download_url": "https://static.observableusercontent.com/files/c983884de6f39603043dc052d00a07282de39aa2784029a41060e8e4a403076006ff74e39dbcf3670a5c3535c9309596489829e4328a1894e818e13c833b4427?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27ATNHPIUS42644Q.csv",
+            "name": "ATNHPIUS42644Q.csv",
+            "create_time": "2024-07-09T04:18:42.939Z",
+            "mime_type": "text/csv",
+            "status": "public",
+            "size": 3425,
+            "content_encoding": "gzip",
+            "private_bucket_id": null
+        }
+    ],
+    "comments": [],
+    "commenting_lock": null,
+    "suggestion_from": null,
+    "suggestions_to": [],
+    "version": 216,
+    "title": "Businesses in Seattle by Year",
+    "license": null,
+    "copyright": "",
+    "nodes": [
+        {
+            "id": 0,
+            "value": "# Businesses in Seattle by Year\n",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 4,
+            "value": "curr_sea_dist_raw = FileAttachment(\"Neighborhood_Map_Atlas_Neighborhoods@1.geojson\").json()",
+            "pinned": true,
+            "mode": "js",
+            "data": {},
+            "name": null
+        },
+        {
+            "id": 14,
+            "value": "curr_sea_dist = curr_sea_dist_raw.features",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 55,
+            "value": "import { db } from \"@andy-thai2/businesses-in-seattle-by-year\"",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 184,
+            "value": "import { Plot } from \"@observablehq/plot\";",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 57,
+            "value": "housing_price = FileAttachment(\"ATNHPIUS42644Q.csv\").csv()",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 61,
+            "value": "SELECT cast(DATE as datetime) AS period, ATNHPIUS42644Q as price FROM housing_price WHERE MONTH(period)=1 AND YEAR(period) between 2010 and 2024;",
+            "pinned": true,
+            "mode": "sql",
+            "data": {
+                "source": {
+                    "name": "housing_price",
+                    "type": "cell",
+                    "dialect": "array"
+                }
+            },
+            "name": "housing"
+        },
+        {
+            "id": 187,
+            "value": "",
+            "pinned": true,
+            "mode": "chart",
+            "data": {
+                "config": {
+                    "x": {
+                        "type": "field",
+                        "value": "period"
+                    },
+                    "y": {
+                        "type": "field",
+                        "value": "price"
+                    },
+                    "fx": {
+                        "type": "undefined"
+                    },
+                    "fy": {
+                        "type": "undefined"
+                    },
+                    "mark": {
+                        "type": "constant",
+                        "value": "area"
+                    },
+                    "size": {
+                        "type": "undefined"
+                    },
+                    "color": {
+                        "type": "constant",
+                        "value": "#65a7ff"
+                    },
+                    "options": {}
+                },
+                "source": {
+                    "name": "housing",
+                    "type": "cell",
+                    "dialect": "array"
+                }
+            },
+            "name": ""
+        }
+    ],
+    "resolutions": [
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/plot",
+            "value": "f3d342db2d382751@886"
+        }
+    ],
+    "schedule": null,
+    "last_view_time": null
+}

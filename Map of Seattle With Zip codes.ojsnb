@@ -1,0 +1,141 @@
+{
+    "id": "a591cf801c29ce47",
+    "slug": "map-of-seattle-with-zip-codes",
+    "trashed": false,
+    "description": "",
+    "likes": 1,
+    "publish_level": "live_unlisted",
+    "forks": 0,
+    "fork_of": null,
+    "has_importers": false,
+    "update_time": "2024-07-11T06:48:51.274Z",
+    "first_public_version": 125,
+    "paused_version": null,
+    "publish_time": "2024-07-11T06:49:19.619Z",
+    "publish_version": 125,
+    "latest_version": 125,
+    "thumbnail": null,
+    "default_thumbnail": null,
+    "roles": [],
+    "sharing": null,
+    "owner": {
+        "id": "0135c59dec57049a",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/80498d6e9326c7925958ff4b5fe713851c8520978c693f31a9b38002962df94c",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "type": "team",
+        "tier": "starter_2024"
+    },
+    "creator": {
+        "id": "40de5409b80a4718",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "tier": "public"
+    },
+    "authors": [
+        {
+            "id": "40de5409b80a4718",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+            "name": "Andy Thai",
+            "login": "andy-thai2",
+            "bio": "",
+            "home_url": "",
+            "tier": "public",
+            "approved": true,
+            "description": ""
+        }
+    ],
+    "collections": [],
+    "files": [
+        {
+            "id": "05c5770b590201a2bdd7ebe90e7c5879c7e0b158e318f4594cca6992f9738a0b8713f75066a09cd28616e80df428154d6faef2dcf7b50ecfff81f7d570124fd6",
+            "url": "https://static.observableusercontent.com/files/05c5770b590201a2bdd7ebe90e7c5879c7e0b158e318f4594cca6992f9738a0b8713f75066a09cd28616e80df428154d6faef2dcf7b50ecfff81f7d570124fd6",
+            "download_url": "https://static.observableusercontent.com/files/05c5770b590201a2bdd7ebe90e7c5879c7e0b158e318f4594cca6992f9738a0b8713f75066a09cd28616e80df428154d6faef2dcf7b50ecfff81f7d570124fd6?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27zip-codes.geojson",
+            "name": "zip-codes.geojson",
+            "create_time": "2024-07-10T21:26:20.259Z",
+            "mime_type": "application/geo+json",
+            "status": "public",
+            "size": 49044,
+            "content_encoding": null,
+            "private_bucket_id": null
+        },
+        {
+            "id": "70b901ce8923c030a41a5a2cff0832cb580a3313eff27258fa7c50c3c2530bb6736feb9945087cdc4df6dd5f455cbb85fd55e167c5e36283ab5520285e21f64d",
+            "url": "https://static.observableusercontent.com/files/70b901ce8923c030a41a5a2cff0832cb580a3313eff27258fa7c50c3c2530bb6736feb9945087cdc4df6dd5f455cbb85fd55e167c5e36283ab5520285e21f64d",
+            "download_url": "https://static.observableusercontent.com/files/70b901ce8923c030a41a5a2cff0832cb580a3313eff27258fa7c50c3c2530bb6736feb9945087cdc4df6dd5f455cbb85fd55e167c5e36283ab5520285e21f64d?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27Active_Business_License_Tax_Certificate_20240710.csv",
+            "name": "Active_Business_License_Tax_Certificate_20240710.csv",
+            "create_time": "2024-07-11T00:29:39.841Z",
+            "mime_type": "text/csv",
+            "status": "public",
+            "size": 20863808,
+            "content_encoding": "gzip",
+            "private_bucket_id": null
+        }
+    ],
+    "comments": [],
+    "commenting_lock": null,
+    "suggestion_from": null,
+    "suggestions_to": [],
+    "version": 125,
+    "title": "Map of Seattle With Zip codes",
+    "license": null,
+    "copyright": "",
+    "nodes": [
+        {
+            "id": 0,
+            "value": "# Map of Seattle With Zip codes\n\n",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 112,
+            "value": "businesses = FileAttachment(\"Active_Business_License_Tax_Certificate_20240710.csv\").csv()",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 4,
+            "value": "curr_sea_dist_raw = FileAttachment(\"zip-codes.geojson\").json()",
+            "pinned": true,
+            "mode": "js",
+            "data": {},
+            "name": null
+        },
+        {
+            "id": 14,
+            "value": "curr_sea_dist = curr_sea_dist_raw.features",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 12,
+            "value": "markers = [\n  {\n    \"type\": \"Feature\",\n    \"geometry\": {\n      \"type\": \"Point\",\n      \"coordinates\": [\n        -122.2573,\n        47.6259\n      ]\n    }\n  }\n]",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 7,
+            "value": "voronoiMap2 = {\n  let ordinalRand = d3.schemeSet3;\n  var defFillv,\n      defRb = \"1.5px\",\n      defFillb = \"black\",\n      defFillgL = \"rgb(209, 209, 209)\",\n      defFillgR = \"white\",\n      defOpv = \"0.4\",\n      defFillbR = \"none\";\n\n  var tooltip = d3.select(\"body\")\n    .append(\"div\")\n    .style(\"position\", \"absolute\")\n    .style(\"z-index\", \"10\")\n    .style(\"visibility\", \"hidden\")\n    .attr(\"class\", \"tooltip\")\n    .style(\"font-family\", \"Lato\");\n\n  var div = d3.create('div');\n\n  var width = 800; // Adjust as needed\n  var height = 600; // Adjust as needed\n  const svg = div.append(\"svg\")\n    .attr(\"width\", width)\n    .attr(\"height\", height);\n\n  // Calculate the bounding box of the features\n  var b = d3.geoBounds(curr_sea_dist_raw);\n  var center = [(b[0][0] + b[1][0]) / 2, (b[0][1] + b[1][1]) / 2];\n  var scale = 0.95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);\n\n  var projection = d3.geoMercator()\n    .center(center)\n    .scale(scale * 42) // Adjust the scaling factor as needed\n    .translate([width / 2, height / 2]);\n\n  var path = d3.geoPath().projection(projection);\n\n  // Aggregate business data by ZIP code\n  var businessCountByZip = d3.rollup(businesses, v => v.length, d => d.Zip);\n\n  // SVG Canvas\n  svg.selectAll('.curr_sea_dist')\n    .data(curr_sea_dist_raw.features)\n    .enter().append(\"path\")\n    .attr(\"class\", \"curr_sea_dist\")\n    .attr(\"d\", path)\n    .attr(\"id\", function(d, i) { return `l1${d.properties.OBJECTID}`; })\n    .attr(\"fill\", defFillgL)\n    .attr(\"stroke\", \"white\")\n    .attr(\"stroke-width\", \"1px\")\n    .on('mouseover', function(e, d) {\n      var zipCode = d.properties.ZCTA5CE10;\n      var businessCount = businessCountByZip.get(zipCode) || 0;\n      tooltip.style(\"visibility\", \"visible\").html(`ZIP Code: ${zipCode}<br>Businesses: ${businessCount}`);\n      d3.select(this).attr(\"stroke-width\", \"2.5px\");\n      d3.select(`#l1${d.properties.OBJECTID}`).attr(\"fill\", defFillgR);\n    })\n    .on('mousemove', function(e) {\n      tooltip.style(\"top\", (e.pageY - 10) + \"px\").style(\"left\", (e.pageX + 20) + \"px\");\n    })\n    .on('mouseout', function() {\n      tooltip.style(\"visibility\", \"hidden\");\n      d3.select(this).attr(\"stroke-width\", \"1px\");\n      d3.select(`#l1${(this).properties.OBJECTID}`).attr(\"fill\", defFillgL);\n    });\n\n  return div.node();\n}\n",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        }
+    ],
+    "resolutions": [],
+    "schedule": null,
+    "last_view_time": null
+}
