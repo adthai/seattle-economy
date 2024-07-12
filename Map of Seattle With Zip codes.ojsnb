@@ -94,67 +94,75 @@
     "nodes": [
         {
             "id": 0,
-            "value": "# Map of Seattle With Zip codes\n\n",
+            "name": "",
+            "value": "# Map of Seattle based on Active Business License Tax Certificate By Zip Code \n\n",
             "pinned": false,
             "mode": "md",
             "data": null,
-            "name": ""
+            "outputs": []
         },
         {
             "id": 112,
+            "name": null,
             "value": "//businesses = FileAttachment(\"Active_Business_License_Tax_Certificate_20240710.csv\").csv()",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 4,
+            "name": null,
             "value": "curr_sea_dist_raw = FileAttachment(\"zip-codes.geojson\").json()",
             "pinned": true,
             "mode": "js",
             "data": {},
-            "name": null
+            "outputs": []
         },
         {
             "id": 171,
+            "name": null,
             "value": "businesses = FileAttachment(\"Active_Business_License_Tax_Certificate_20240711@1.csv\").csv()",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 133,
+            "name": null,
             "value": "data = [{\"year\":2019}, {\"year\":2020}];",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 143,
+            "name": null,
             "value": "years = Array.from({ length: 6}, (_, i) => (2017 + i).toString());",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 131,
+            "name": null,
             "value": "viewof yearDropdown = Inputs.select(years, {label: \"Pick a year\"})",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 7,
+            "name": null,
             "value": "voronoiMap2 = {\n  let ordinalRand = d3.schemeSet3;\n  var defFillv,\n      defRb = \"1.5px\",\n      defFillb = \"black\",\n      defFillgL = \"rgb(209, 209, 209)\",\n      defFillgR = \"white\",\n      defOpv = \"0.4\",\n      defFillbR = \"none\";\n\n  var tooltip = d3.select(\"body\")\n    .append(\"div\")\n    .style(\"position\", \"absolute\")\n    .style(\"z-index\", \"10\")\n    .style(\"visibility\", \"hidden\")\n    .attr(\"class\", \"tooltip\")\n    .style(\"font-family\", \"Lato\");\n\n  var div = d3.create('div');\n\n  var width = 800; // Adjust as needed\n  var height = 600; // Adjust as needed\n  const svg = div.append(\"svg\")\n    .attr(\"width\", width)\n    .attr(\"height\", height);\n\n  // Calculate the bounding box of the features\n  var b = d3.geoBounds(curr_sea_dist_raw);\n  var center = [(b[0][0] + b[1][0]) / 2, (b[0][1] + b[1][1]) / 2];\n  var scale = 0.95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);\n\n  var projection = d3.geoMercator()\n    .center(center)\n    .scale(scale * 42) // Adjust the scaling factor as needed\n    .translate([width / 2, height / 2]);\n\n  var path = d3.geoPath().projection(projection);\n\n  // Define a color scale\n  var colorScale = d3.scaleSequential(d3.interpolateBlues)\n    .domain([0, 100]); // Adjust the domain as needed based on your data\n\n  // Function to create the legend\n  function createLegend() {\n    const legendWidth = 200;\n    const legendHeight = 20;\n\n    const legend = svg.append(\"g\")\n      .attr(\"class\", \"legend\")\n      .attr(\"transform\", `translate(${width - legendWidth - 20}, ${height - legendHeight - 20})`);\n\n    const legendScale = d3.scaleLinear()\n      .domain([0, 100]) // Adjust based on your data\n      .range([0, legendWidth]);\n\n    const legendAxis = d3.axisBottom(legendScale)\n      .ticks(5)\n      .tickFormat(d => `${d}`);\n\n    legend.append(\"g\")\n      .attr(\"transform\", `translate(0, ${legendHeight})`)\n      .call(legendAxis);\n\n    legend.append(\"rect\")\n      .attr(\"width\", legendWidth)\n      .attr(\"height\", legendHeight)\n      .style(\"fill\", \"url(#legendGradient)\");\n\n    const gradient = legend.append(\"defs\")\n      .append(\"linearGradient\")\n      .attr(\"id\", \"legendGradient\")\n      .attr(\"x1\", \"0%\").attr(\"y1\", \"0%\")\n      .attr(\"x2\", \"100%\").attr(\"y2\", \"0%\");\n\n    gradient.selectAll(\"stop\")\n      .data(d3.ticks(0, 1, 5))\n      .enter().append(\"stop\")\n      .attr(\"offset\", d => `${d * 100}%`)\n      .attr(\"stop-color\", d => colorScale(d * 100));\n\n    legend.append(\"text\")\n      .attr(\"class\", \"legend-label\")\n      .attr(\"x\", legendWidth / 2)\n      .attr(\"y\", -5)\n      .style(\"text-anchor\", \"middle\")\n      .text(\"Number of Businesses\");\n\n    return legend;\n  }\n\n  // Assuming the JSON data is loaded and stored in a variable called `businessData`\n  function updateMap(year) {\n    // Aggregate business data by ZIP code for the selected year\n    var businessCountByZip = d3.rollup(businesses.filter(d => d[\"License Start Date\"].slice(0,4) === year), v => v.length, d => d.Zip);\n\n    // SVG Canvas\n    svg.selectAll('.curr_sea_dist')\n      .data(curr_sea_dist_raw.features)\n      .join(\"path\")\n      .attr(\"class\", \"curr_sea_dist\")\n      .attr(\"d\", path)\n      .attr(\"id\", function(d, i) { return `l1${d.properties.OBJECTID}`; })\n      .attr(\"fill\", d => colorScale(businessCountByZip.get(d.properties.ZCTA5CE10) || 0))\n      .attr(\"stroke\", \"white\")\n      .attr(\"stroke-width\", \"1px\")\n      .on('mouseover', function(e, d) {\n        var zipCode = d.properties.ZCTA5CE10;\n        var businessCount = businessCountByZip.get(zipCode) || 0;\n        tooltip.style(\"visibility\", \"visible\").html(`ZIP Code: ${zipCode}<br>Businesses: ${businessCount}`);\n        d3.select(this).attr(\"stroke-width\", \"2.5px\");\n      })\n      .on('mousemove', function(e) {\n        tooltip.style(\"top\", (e.pageY - 10) + \"px\").style(\"left\", (e.pageX + 20) + \"px\");\n      })\n      .on('mouseout', function() {\n        tooltip.style(\"visibility\", \"hidden\");\n        d3.select(this).attr(\"stroke-width\", \"1px\");\n      });\n\n    // Update legend\n    svg.selectAll(\".legend\").remove(); // Remove existing legend\n    createLegend(); // Create updated legend\n  }\n\n  // Initial map update\n  updateMap(yearDropdown);\n\n  // Update map when the dropdown value changes\n  viewof yearDropdown.addEventListener(\"input\", () => {\n    updateMap(yearDropdown);\n  });\n\n  return div.node();\n}\n\n",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         }
     ],
     "resolutions": [],
