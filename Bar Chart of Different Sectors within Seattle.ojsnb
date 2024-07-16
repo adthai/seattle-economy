@@ -1,0 +1,151 @@
+{
+    "id": "59f6873ea7740714",
+    "slug": "bar-chart-of-different-sectors-within-seattle",
+    "trashed": false,
+    "description": "",
+    "likes": 0,
+    "publish_level": "live_unlisted",
+    "forks": 0,
+    "fork_of": null,
+    "has_importers": false,
+    "update_time": "2024-07-16T21:51:40.526Z",
+    "first_public_version": 230,
+    "paused_version": null,
+    "publish_time": null,
+    "publish_version": 320,
+    "latest_version": 320,
+    "thumbnail": "e51417a1961ba158a5e6ea17e15b1058469f37da418b755c7f4a9ff212892033",
+    "default_thumbnail": "e51417a1961ba158a5e6ea17e15b1058469f37da418b755c7f4a9ff212892033",
+    "roles": [],
+    "sharing": null,
+    "owner": {
+        "id": "0135c59dec57049a",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/80498d6e9326c7925958ff4b5fe713851c8520978c693f31a9b38002962df94c",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "type": "team",
+        "tier": "starter_2024"
+    },
+    "creator": {
+        "id": "40de5409b80a4718",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "tier": "public"
+    },
+    "authors": [
+        {
+            "id": "40de5409b80a4718",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+            "name": "Andy Thai",
+            "login": "andy-thai2",
+            "bio": "",
+            "home_url": "",
+            "tier": "public",
+            "approved": true,
+            "description": ""
+        }
+    ],
+    "collections": [],
+    "files": [
+        {
+            "id": "cf5c590bf5a49c20d45c4646d70a34732d4c650ba64b50f7dd23bca8916ebd679b408f3ec4a094a08ba2e33202ac40b4889c4d798578d07e842f6370d6faac43",
+            "url": "https://static.observableusercontent.com/files/cf5c590bf5a49c20d45c4646d70a34732d4c650ba64b50f7dd23bca8916ebd679b408f3ec4a094a08ba2e33202ac40b4889c4d798578d07e842f6370d6faac43",
+            "download_url": "https://static.observableusercontent.com/files/cf5c590bf5a49c20d45c4646d70a34732d4c650ba64b50f7dd23bca8916ebd679b408f3ec4a094a08ba2e33202ac40b4889c4d798578d07e842f6370d6faac43?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27Active_Business_License_Tax_Certificate_20240711%25401.csv",
+            "name": "Active_Business_License_Tax_Certificate_20240711@1.csv",
+            "create_time": "2024-07-12T20:43:37.750Z",
+            "mime_type": "text/csv",
+            "status": "public",
+            "size": 20870526,
+            "content_encoding": "gzip",
+            "private_bucket_id": null
+        }
+    ],
+    "comments": [],
+    "commenting_lock": null,
+    "suggestion_from": null,
+    "suggestions_to": [],
+    "version": 320,
+    "title": "Bar Chart of Different Sectors within Seattle",
+    "license": null,
+    "copyright": "",
+    "nodes": [
+        {
+            "id": 0,
+            "name": "",
+            "value": "# Bar Chart of Different Sectors within Seattle\n\n",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": 171,
+            "name": null,
+            "value": "// attachment of different businesses within the Seattle region.\nbusinesses = FileAttachment(\"Active_Business_License_Tax_Certificate_20240711@1.csv\").csv()",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": 239,
+            "name": null,
+            "value": "//the different years (from the year 2017 to the year 2022)\nyears = Array.from({ length: 6}, (_, i) => (2017 + i).toString());",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": 270,
+            "name": null,
+            "value": "// obtaining the year based on the License Start Date of each business\nfunction getYear(business) {\n  return business[\"License Start Date\"].substring(0, 4);\n}",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": 291,
+            "name": null,
+            "value": "//sort each business by the industry the business serves\nfunction filterByIndustry(industry) {\n  return businesses.filter(b => b[\"NAICS Description\"] === industry);\n}",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": 294,
+            "name": null,
+            "value": "// Count businesses by year for the selected industry\nfunction countBusinessesByYear(industry) {\n  const filtered = filterByIndustry(industry);\n  const counts = {};\n\n  //making sure the year of the business was in is equivalent to the string version of the year that we currently have.\n  for (let year = 2017; year <= 2022; year++) {\n    counts[year.toString()] = filtered.filter(b => getYear(b) === year.toString()).length;\n  }\n  \n  return counts;\n}",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "// dropdown menu showcasing the different industries present within the city proper.\n// via each of the NAICS Description within the businesses data.\nviewof industryDropdown = Inputs.select(\n  [...new Set(businesses.map(b => b[\"NAICS Description\"]))],\n  { label: \"Pick an industry\" }\n)",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": 237,
+            "name": null,
+            "value": "// Plotting the bar graph\nPlot.plot({\n  marks: [\n    Plot.barY(Object.entries(countBusinessesByYear(industryDropdown)), { x: \"0\", y: \"1\" })\n  ],\n  // x axis\n  x: {\n    label: \"Year\",\n    values: [\"2017\", \"2018\", \"2019\", \"2020\", \"2021\", \"2022\"]\n  },\n  // y axis\n  y: {\n    label: \"Number of Businesses\"\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80,\n  fill: {value: \"salmon\"},\n})\n\n\n",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "outputs": []
+        }
+    ],
+    "resolutions": [],
+    "schedule": null,
+    "last_view_time": null
+}
