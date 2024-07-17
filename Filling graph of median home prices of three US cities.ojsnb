@@ -1,0 +1,291 @@
+{
+    "id": "1c28e88be20bff13",
+    "slug": "filling-graph-of-median-home-prices-of-three-us-ci",
+    "trashed": false,
+    "description": "",
+    "likes": 0,
+    "publish_level": "live_unlisted",
+    "forks": 0,
+    "fork_of": null,
+    "has_importers": false,
+    "update_time": "2024-07-17T22:57:44.531Z",
+    "first_public_version": 2,
+    "paused_version": null,
+    "publish_time": null,
+    "publish_version": 254,
+    "latest_version": 254,
+    "thumbnail": "8065c78c799415bc38622060901e625b27d68da430b3586aaa5563793303e250",
+    "default_thumbnail": "8065c78c799415bc38622060901e625b27d68da430b3586aaa5563793303e250",
+    "roles": [],
+    "sharing": null,
+    "owner": {
+        "id": "0135c59dec57049a",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/80498d6e9326c7925958ff4b5fe713851c8520978c693f31a9b38002962df94c",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "type": "team",
+        "tier": "starter_2024"
+    },
+    "creator": {
+        "id": "40de5409b80a4718",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+        "login": "andy-thai2",
+        "name": "Andy Thai",
+        "bio": "",
+        "home_url": "",
+        "tier": "public"
+    },
+    "authors": [
+        {
+            "id": "40de5409b80a4718",
+            "avatar_url": "https://avatars.observableusercontent.com/avatar/ec55880290f41d7b782d35494b5b7352f99ec43ee894c5d8921fa46f7493e410",
+            "name": "Andy Thai",
+            "login": "andy-thai2",
+            "bio": "",
+            "home_url": "",
+            "tier": "public",
+            "approved": true,
+            "description": ""
+        }
+    ],
+    "collections": [],
+    "files": [
+        {
+            "id": "ffe9c3dbef1c4f6ee3d11d1833d7b979b5eec8ead55ada72464d0907dece6f6c1d79860c6f941a49e53e9fd4cae72e488137be13f4896ee26c77de147f1b7798",
+            "url": "https://static.observableusercontent.com/files/ffe9c3dbef1c4f6ee3d11d1833d7b979b5eec8ead55ada72464d0907dece6f6c1d79860c6f941a49e53e9fd4cae72e488137be13f4896ee26c77de147f1b7798",
+            "download_url": "https://static.observableusercontent.com/files/ffe9c3dbef1c4f6ee3d11d1833d7b979b5eec8ead55ada72464d0907dece6f6c1d79860c6f941a49e53e9fd4cae72e488137be13f4896ee26c77de147f1b7798?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27data%2520-%2520seattle.csv",
+            "name": "data - seattle.csv",
+            "create_time": "2024-07-16T23:18:40.824Z",
+            "mime_type": "text/csv",
+            "status": "public",
+            "size": 22254,
+            "content_encoding": "gzip",
+            "private_bucket_id": null
+        },
+        {
+            "id": "e4b64da04429dc66a7456b8bab83587e26bd2a2d1583e41d6fab1867686e236c4b91ee62207f3d91970b7f0cc6f0d7cc5312d987d582a965057ca4cdab2af70b",
+            "url": "https://static.observableusercontent.com/files/e4b64da04429dc66a7456b8bab83587e26bd2a2d1583e41d6fab1867686e236c4b91ee62207f3d91970b7f0cc6f0d7cc5312d987d582a965057ca4cdab2af70b",
+            "download_url": "https://static.observableusercontent.com/files/e4b64da04429dc66a7456b8bab83587e26bd2a2d1583e41d6fab1867686e236c4b91ee62207f3d91970b7f0cc6f0d7cc5312d987d582a965057ca4cdab2af70b?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27data%2520-%2520san%2520francisco.csv",
+            "name": "data - san francisco.csv",
+            "create_time": "2024-07-16T23:18:43.530Z",
+            "mime_type": "text/csv",
+            "status": "public",
+            "size": 21614,
+            "content_encoding": "gzip",
+            "private_bucket_id": null
+        },
+        {
+            "id": "8279b75644cec72351567473b05e8375b3021bf78fe338fd255d8767df803f9ae95ddddd3cfabbc0c579b45148c7c6e9f2b53eb470a0038a0468f0042c24eb2c",
+            "url": "https://static.observableusercontent.com/files/8279b75644cec72351567473b05e8375b3021bf78fe338fd255d8767df803f9ae95ddddd3cfabbc0c579b45148c7c6e9f2b53eb470a0038a0468f0042c24eb2c",
+            "download_url": "https://static.observableusercontent.com/files/8279b75644cec72351567473b05e8375b3021bf78fe338fd255d8767df803f9ae95ddddd3cfabbc0c579b45148c7c6e9f2b53eb470a0038a0468f0042c24eb2c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27data%2520-%2520new%2520york%2520city.csv",
+            "name": "data - new york city.csv",
+            "create_time": "2024-07-16T23:18:46.304Z",
+            "mime_type": "text/csv",
+            "status": "public",
+            "size": 14978,
+            "content_encoding": "gzip",
+            "private_bucket_id": null
+        }
+    ],
+    "comments": [],
+    "commenting_lock": null,
+    "suggestion_from": null,
+    "suggestions_to": [],
+    "version": 254,
+    "title": "Filling graph of median home prices of three US cities",
+    "license": null,
+    "copyright": "",
+    "nodes": [
+        {
+            "id": 0,
+            "value": "# Filling graph of median home prices of three US cities",
+            "pinned": false,
+            "mode": "md",
+            "data": null,
+            "name": ""
+        },
+        {
+            "id": 235,
+            "value": "import {addTooltips} from \"@mkfreeman/plot-tooltip\"",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 5,
+            "value": "seattle = FileAttachment(\"data - seattle.csv\").csv()",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 9,
+            "value": "sanFrancisco = FileAttachment(\"data - san francisco.csv\").csv()",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 11,
+            "value": "newYorkCity = FileAttachment(\"data - new york city.csv\").csv()",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 94,
+            "value": "// Clean and convert data\ncleanedDataSeattle = seattle.map(d => {\n  const [month, year] = d[\"Month of Period End\"].split(\"-\");\n  const numericYear = 2000 + parseInt(year); // Correctly parse the year from string year to integer 2000+17\n  const price = parseFloat(d[\"Median Sale Price\"].replace(\"$\", \"\").replace(\"K\", \"000\"));\n  //replace $100K string to 100000 float\n  return {\n    //numericYear-(month (as a date))-day 1\n    date: new Date(numericYear, new Date(Date.parse(month + \"1\")).getMonth(), 1),\n    price: price\n  };\n});\n",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 144,
+            "value": "cleanedDataSanFrancisco = sanFrancisco.map(d => {\n  const [month, year] = d[\"Month of Period End\"].split(\"-\");\n  const numericYear = 2000 + parseInt(year); // Correctly parse the year\n  \n  // Parse the price, handle 'K' for thousands and 'M' for millions\n  let priceString = d[\"Median Sale Price\"];\n  let price;\n  if (priceString.includes(\",\")) {\n    price = parseFloat(priceString.replace(\"$\", \"\").replace(\",\", \"\").replace(\"K\", \"\")) * 1000;\n  } else if (priceString.includes(\"K\")) {\n    price = parseFloat(priceString.replace(\"$\", \"\").replace(\"K\", \"\")) * 1000;\n  } else {\n    price = parseFloat(priceString.replace(\"$\", \"\"));\n  }\n\n  // Parse the month and create a Date object\n  const date = new Date(numericYear, new Date(Date.parse(month + \" 1\")).getMonth(), 1);\n\n  return {\n    date: date,\n    price: price\n  };\n});\n",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 197,
+            "value": "cleanedDataNewYork = newYorkCity.map(d => {\n  const [month, year] = d[\"Month of Period End\"].split(\"-\");\n  const numericYear = 2000 + parseInt(year); // Correctly parse the year\n  \n  // Parse the price, handle 'K' for thousands and 'M' for millions\n  let priceString = d[\"Median Sale Price\"];\n  let price;\n  if (priceString.includes(\",\")) {\n    price = parseFloat(priceString.replace(\"$\", \"\").replace(\",\", \"\").replace(\"K\", \"\")) * 1000;\n  } else if (priceString.includes(\"K\")) {\n    price = parseFloat(priceString.replace(\"$\", \"\").replace(\"K\", \"\")) * 1000;\n  } else {\n    price = parseFloat(priceString.replace(\"$\", \"\"));\n  }\n\n  // Parse the month and create a Date object\n  const date = new Date(numericYear, new Date(Date.parse(month + \" 1\")).getMonth(), 1);\n\n  return {\n    date: date,\n    price: price\n  };\n});",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 67,
+            "value": "filteredDataSeattle = cleanedDataSeattle.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);\n",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 149,
+            "value": "filteredDataSanFrancisco = cleanedDataSanFrancisco.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 151,
+            "value": "filteredDataNewYork = cleanedDataNewYork.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 69,
+            "value": "addTooltips(\n  Plot.plot({\n  marks: [\n    Plot.lineY(filteredDataSeattle, {x: d => d.date, y: d => d.price, stroke: \"salmon\", strokeWidth: 4.0, title: (d) =>\n      `\\n Date : ${d.date} \\n Price: ${d.price}`}),\n    Plot.areaY(filteredDataSeattle, {x: d => d.date, y: d => d.price, fill: \"salmon\", fillOpacity: 0.3 })\n  ],\n  x: {\n    label: \"Year\",\n  },\n  y: {\n    label: \"Median Sale Price ($)\",\n    grid: true\n  },\n  tooltip: {\n    fill: \"red\",\n    stroke: \"blue\",\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80\n})\n);",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 140,
+            "value": "addTooltips(\n  Plot.plot({\n  marks: [\n    Plot.lineY(filteredDataSanFrancisco, {x: d => d.date, y: d => d.price, stroke: \"blue\", strokeWidth: 4.0, title: (d) =>\n      `\\n Date : ${d.date} \\n Price: ${d.price}`}),\n    Plot.areaY(filteredDataSanFrancisco, {x: d => d.date, y: d => d.price, fill: \"blue\", fillOpacity: 0.3 })\n  ],\n  x: {\n    label: \"Year\",\n  },\n  y: {\n    label: \"Median Sale Price ($)\",\n    grid: true\n  },\n  tooltip: {\n    fill: \"red\",\n    stroke: \"blue\",\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80\n})\n);\n",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 142,
+            "value": "addTooltips(\n  Plot.plot({\n  marks: [\n    Plot.lineY(filteredDataNewYork, {x: d => d.date, y: d => d.price, stroke: \"green\", strokeWidth: 4.0, title: (d) =>\n      `\\n Date : ${d.date} \\n Price: ${d.price}`}),\n    Plot.areaY(filteredDataNewYork, {x: d => d.date, y: d => d.price, fill: \"green\", fillOpacity: 0.3 })\n  ],\n  x: {\n    label: \"Year\",\n  },\n  y: {\n    label: \"Median Sale Price ($)\",\n    grid: true\n  },\n  tooltip: {\n    fill: \"red\",\n    stroke: \"blue\",\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80\n})\n);",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 14,
+            "value": "Plot.plot({\n  marks: [\n    Plot.areaY(cleanedDataSanFrancisco, {x: d => d.date, y: d => d.price, fill: \"salmon\"})\n  ],\n  x: {\n    label: \"Year\",\n    tickFormat: d => d.getFullYear()\n  },\n  y: {\n    label: \"Median Sale Price\",\n    tickFormat: [100000],\n    grid: true\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80\n});",
+            "pinned": true,
+            "mode": "js",
+            "data": {
+                "display": {
+                    "mode": "none"
+                }
+            },
+            "name": null
+        },
+        {
+            "id": 47,
+            "value": "function getYear(house) {\n    return house[\"Month of Period End\"].substring(3, 4);\n}",
+            "pinned": true,
+            "mode": "js",
+            "data": null,
+            "name": null
+        },
+        {
+            "id": 252,
+            "value": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Interactive Plot with Delayed Tooltips</title>\n  <script src=\"https://d3js.org/d3.v6.min.js\"></script>\n  <style>\n    .tooltip {\n      position: absolute;\n      text-align: left;\n      width: auto;\n      height: auto;\n      padding: 10px;\n      font: 12px sans-serif;\n      background: lightsteelblue;\n      border: 1px solid #ddd;\n      border-radius: 5px;\n      pointer-events: none;\n      opacity: 0;\n      transition: opacity 0.2s;\n    }\n  </style>\n</head>\n<body>\n  <div id=\"plot\"></div>\n  <div class=\"tooltip\"></div>\n\n  <script type=\"module\">\n    import * as Plot from \"https://cdn.jsdelivr.net/npm/@observablehq/plot@0.5.1/+esm\";\n    import { select, csv } from \"https://cdn.jsdelivr.net/npm/d3@6/+esm\";\n\n    // Load CSV data\n    FileAttachment(\"data - new york city.csv\").csv().then(data => {\n      // Parse date and price fields\n      data.forEach(d => {\n        d.date = new Date(d.date);\n        d.price = +d.price;\n      });\n\n      const plot = Plot.plot({\n        marks: [\n          Plot.lineY(data, {x: d => d.date, y: d => d.price, stroke: \"green\", strokeWidth: 4.0}),\n          Plot.areaY(data, {x: d => d.date, y: d => d.price, fill: \"green\", fillOpacity: 0.3})\n        ],\n        x: {label: \"Year\"},\n        y: {label: \"Median Sale Price ($)\", grid: true},\n        width: 800,\n        height: 400,\n        marginTop: 50,\n        marginBottom: 80,\n        marginLeft: 80\n      });\n\n      document.getElementById('plot').append(plot);\n\n      const tooltip = select(\".tooltip\");\n\n      select(plot)\n        .selectAll(\"circle\")\n        .data(data)\n        .enter()\n        .append(\"circle\")\n        .attr(\"r\", 5)\n        .attr(\"cx\", d => plot.scales.x(d.date))\n        .attr(\"cy\", d => plot.scales.y(d.price))\n        .style(\"fill\", \"transparent\")\n        .style(\"pointer-events\", \"all\")\n        .on(\"mouseover\", function(event, d) {\n          setTimeout(() => {\n            tooltip.transition().duration(200).style(\"opacity\", 1);\n              .style(\"left\", (event.pageX + 5) + \"px\")\n              .style(\"top\", (event.pageY - 28) + \"px\");\n          }, 2000);\n        })\n        .on(\"mouseout\", function() {\n          tooltip.transition().duration(200).style(\"opacity\", 0);\n        });\n    });\n  </script>\n</body>\n</html>\n",
+            "pinned": false,
+            "mode": "html",
+            "data": null,
+            "name": ""
+        }
+    ],
+    "resolutions": [
+        {
+            "type": "notebook",
+            "specifier": "@mkfreeman/plot-tooltip",
+            "value": "67d1b2c32f1883c4@669"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/plot-cheatsheets-marks",
+            "value": "d2dffac0e42406e8@3045"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/cheatsheet-utilities",
+            "value": "794aa914fd015c9e@3360"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@nebrius/indented-toc",
+            "value": "9bed702f80a3797e@402"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/plot-exploration-penguins",
+            "value": "32eeadb67cb4cbcb@1472"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@mbostock/pbcopy",
+            "value": "ab3e70b29c480e6d@83"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@zanarmstrong/highlight-color-w-dropdown",
+            "value": "8d6618bb2d7befdd@199"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@jashkenas/inputs",
+            "value": "e93997d5089d7165@2303"
+        },
+        {
+            "type": "notebook",
+            "specifier": "@observablehq/plot-stack",
+            "value": "33bc32700f22adb1@887"
+        }
+    ],
+    "schedule": null,
+    "last_view_time": null
+}
