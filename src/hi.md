@@ -119,3 +119,29 @@ Here are some ideas of things you could try…
 }
 
 </style>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voronoi Map</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+    .tooltip {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="neighborhood.js"></script>
+</body>
+</html>
+
+```

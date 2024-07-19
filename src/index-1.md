@@ -2,6 +2,7 @@
 title: History
 ---
 
+
 <h1> Seattle's Economic History </h1>
 
 ```js
