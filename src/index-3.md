@@ -12,6 +12,9 @@ import {Plot} from "@mkfreeman/plot-tooltip"
 const businesses = FileAttachment("./data/datachart.csv").csv()
 ```
 ```js
+display(businesses);
+```
+```js
 const years = Array.from({ length: 6}, (_, i) => (2017 + i).toString());
 ```
 
