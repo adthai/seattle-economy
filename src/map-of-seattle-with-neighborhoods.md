@@ -1,23 +1,15 @@
+# Map of Seattle With Zipcodes
 
 ```js
 const businesses = await FileAttachment("./data/Active_Business_License_Tax_Certificate_20240711@1.csv").csv();
-```
-```js
-display(businesses);
 ```
 
 ```js
 const curr_sea_dist_raw = await FileAttachment("./data/zip-codes.geojson").json();
 ```
-```js
-display(curr_sea_dist_raw);
-```
 
 ```js
 const years = Array.from({length: 6}, (_,i) => (2017 + i).toString());
-```
-```js
-display(years);
 ```
 
 ```js
