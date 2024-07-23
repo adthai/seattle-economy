@@ -1,10 +1,25 @@
 # Filling graph of median home prices of three US cities
 
+
+<h3><b>Supply and demand on the market:</b></h3>
+<p>Throughout the last decade, housing has skyrocketed in many major cities across the US,
+Seattle in particular. As mentioned before, demand in jobs has risen in an exponential amount.
+This leads to an unprecedented amount of people coming to cities such as Seattle. If you take
+a look around 2016-2019, home prices skyrocketed.</p>
+
+<p>However,when COVID-19 hit across the world, many cities have led to a migration of thousands
+leaving big cities. The population in these three cities, including Seattle, decreased in 2020.
+There are many factors to this phenomena. Many people had to emigrate to either their home country
+or another country as mandated. Others left because of personal reasons regarding the disease or
+the government itself. This led to a cool off of home prices in the three cities. </p>
+
+<p> Things started picking up again slowly after COVID, with people coming back to these cities,
+increasing home prices again. </p>
+
+
 ```js
 const seattle = FileAttachment("./data/data - seattle.csv").csv()
-
 const sanFrancisco = FileAttachment("./data/data - san francisco.csv").csv()
-
 const newYorkCity = FileAttachment("./data/data - new york city.csv").csv()
 ```
 
@@ -15,7 +30,6 @@ const cleanedDataSeattle = seattle.map(d => {
   const price = parseFloat(d["Median Sale Price"].replace("$", "").replace("K", "000"));
   //replace $100K string to 100000 float
   return {
-    //numericYear-(month (as a date))-day 1
     date: new Date(numericYear, new Date(Date.parse(month + "1")).getMonth(), 1),
     price: price
   };
@@ -86,7 +100,7 @@ const filteredDataNewYork = cleanedDataNewYork.filter(d => d.date.getFullYear() 
 ```
 
 ```js
-const sanFranciscoPlot = html`<div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+const sanFranciscoPlot = html`<div class="card" id="animations" style="display: flex; flex-direction: column; gap: 1rem;">
   ${Plot.plot({
     marks: [
       Plot.lineY(filteredDataSanFrancisco, {
@@ -150,7 +164,8 @@ const seattlePlot = html`<div class="card" style="display: flex; flex-direction:
   })}
 </div>`;
 
-const newYorkPlot = html`<div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+
+  const newYorkPlot = html`<div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
   ${Plot.plot({
     marks: [
       Plot.lineY(filteredDataNewYork, {

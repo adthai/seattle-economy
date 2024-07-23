@@ -2,17 +2,10 @@
 theme: dashboard
 toc: false
 ---
-```
-import {Plot} from "@mkfreeman/plot-tooltip"
-```
-
 # Chart
 
 ```js
 const businesses = FileAttachment("./data/datachart.csv").csv()
-```
-```js
-display(businesses);
 ```
 ```js
 const years = Array.from({ length: 6}, (_, i) => (2017 + i).toString());
@@ -82,13 +75,14 @@ function renderChart(industry, {width} = {}) {
         y: "count",
         title: d => `Year: ${d.year}\nBusinesses: ${d.count}`,
         style: {
-          fontSize: '100px',   // Customize font size
+          fontSize: '10px',   // Customize font size
           padding: '10px',     // Customize padding
-          maxWidth: '100px',  // Set a max width
+          maxWidth: '50px',  // Set a max width
           backgroundColor: '#333', // Background color
           color: '#fff',      // Text color
           borderRadius: '4px', // Rounded corners
-          border: '1px solid #ddd' // Border styling
+          border: '1px solid #ddd', // Border styling
+          marginRight: '100px'
         }
       })
     ],
@@ -99,10 +93,9 @@ function renderChart(industry, {width} = {}) {
       label: "Number of Businesses"
     },
     width,
-    height: 400,
-    marginTop: 50,
+    height: 700,
+    marginTop: 90,
     marginBottom: 80,
-    marginLeft: 80,
   });
 
   chartContainer.appendChild(chart);
