@@ -1,20 +1,11 @@
 # Filling graph of median home prices of three US cities
 
 ```js
-import {addTooltips} from "@mkfreeman/plot-tooltip"
-import {html} from "observablehq/htl"
-```
-
-```js
 const seattle = FileAttachment("./data/data - seattle.csv").csv()
 
 const sanFrancisco = FileAttachment("./data/data - san francisco.csv").csv()
 
 const newYorkCity = FileAttachment("./data/data - new york city.csv").csv()
-```
-
-```js
-display(seattle)
 ```
 
 ```js
@@ -29,9 +20,6 @@ const cleanedDataSeattle = seattle.map(d => {
     price: price
   };
 });
-```
-```js
-display(cleanedDataSeattle())
 ```
 
 ```js
@@ -58,11 +46,6 @@ const cleanedDataSanFrancisco = sanFrancisco.map(d => {
     price: price
   };
 });
-
-```
-
-```js
-display(cleanedDataSanFrancisco())
 ```
 
 ```js
@@ -95,98 +78,87 @@ const cleanedDataNewYork = newYorkCity.map(d => {
 const filteredDataSeattle = cleanedDataSeattle.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);
 
 ```
-
-```js
-display(filteredDataSeattle)
-```
-
 ```js
 const filteredDataSanFrancisco = cleanedDataSanFrancisco.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);
 ```
-
-```js
-display(filteredDataSanFrancisco)
-```
-
 ```js
 const filteredDataNewYork = cleanedDataNewYork.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);
 ```
-```js
-display(filteredDataNewYork)
-```
 
 ```js
-// Create and render the plot with tooltips
-Plot.plot({
-  marks: [
-    Plot.lineY(filteredDataSanFrancisco, {
-      x: d => d.date,
-      y: d => d.price,
-      stroke: "blue",
-      strokeWidth: 4.0,
-      title: d => `\n Date: ${d.date.toLocaleDateString()} \n Price: ${d.price}`
-    }),
-    Plot.areaY(filteredDataSanFrancisco, {
-      x: d => d.date,
-      y: d => d.price,
-      fill: "blue",
-      fillOpacity: 0.3
-    })
-  ],
-  x: {
-    label: "Year",
-  },
-  y: {
-    label: "Median Sale Price ($)",
-    grid: true
-  },
-  width: 800,
-  height: 400,
-  marginTop: 50,
-  marginBottom: 80,
-  marginLeft: 80
-})
-```
-```js
-Plot.plot({
-  marks: [
-    Plot.lineY(filteredDataSeattle, {
-      x: d => d.date,
-      y: d => d.price,
-      stroke: "salmon",
-      strokeWidth: 4.0,
-      title: d => `\n Date: ${d.date.toLocaleDateString()} \n Price: ${d.price}`
-    }),
-    Plot.areaY(filteredDataSeattle, {
-      x: d => d.date,
-      y: d => d.price,
-      fill: "salmon",
-      fillOpacity: 0.3
-    })
-  ],
-  x: {
-    label: "Year",
-  },
-  y: {
-    label: "Median Sale Price ($)",
-    grid: true
-  },
-  width: 800,
-  height: 400,
-  marginTop: 50,
-  marginBottom: 80,
-  marginLeft: 80
-})
-```
-```js
- Plot.plot({
+const sanFranciscoPlot = html`<div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+  ${Plot.plot({
+    marks: [
+      Plot.lineY(filteredDataSanFrancisco, {
+        x: d => d.date,
+        y: d => d.price,
+        stroke: "blue",
+        strokeWidth: 4.0,
+        title: d => `Date: ${d.date.toLocaleDateString()} \nPrice: $${d.price.toFixed(2)}`
+      }),
+      Plot.areaY(filteredDataSanFrancisco, {
+        x: d => d.date,
+        y: d => d.price,
+        fill: "blue",
+        fillOpacity: 0.3
+      })
+    ],
+    x: {
+      label: "Year",
+    },
+    y: {
+      label: "Median Sale Price ($)",
+      grid: true
+    },
+    width: 800,
+    height: 400,
+    marginTop: 50,
+    marginBottom: 80,
+    marginLeft: 80
+  })}
+</div>`;
+
+const seattlePlot = html`<div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+  ${Plot.plot({
+    marks: [
+      Plot.lineY(filteredDataSeattle, {
+        x: d => d.date,
+        y: d => d.price,
+        stroke: "salmon",
+        strokeWidth: 4.0,
+        title: d => `Date: ${d.date.toLocaleDateString()} \nPrice: $${d.price.toFixed(2)}`
+      }),
+      Plot.areaY(filteredDataSeattle, {
+        x: d => d.date,
+        y: d => d.price,
+        fill: "salmon",
+        fillOpacity: 0.3
+      })
+    ],
+    x: {
+      label: "Year",
+    },
+    y: {
+      label: "Median Sale Price ($)",
+      grid: true
+    },
+    width: 800,
+    height: 400,
+    marginTop: 50,
+    marginBottom: 80,
+    marginLeft: 80
+  })}
+</div>`;
+
+const newYorkPlot = html`<div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+  ${Plot.plot({
     marks: [
       Plot.lineY(filteredDataNewYork, {
         x: d => d.date,
         y: d => d.price,
         stroke: "green",
         strokeWidth: 4.0,
-        title: d => `\n Date: ${d.date.toLocaleDateString()} \n Price: ${d.price}`
+        title: d => `Date: ${d.date.toLocaleDateString()} \nPrice: $${d.price.toFixed(2)}`
       }),
       Plot.areaY(filteredDataNewYork, {
         x: d => d.date,
@@ -202,10 +174,17 @@ Plot.plot({
       label: "Median Sale Price ($)",
       grid: true
     },
-    width: resize.width,
+    width: 800,
     height: 400,
     marginTop: 50,
     marginBottom: 80,
     marginLeft: 80
-  })
+  })}
+</div>`;
+```
+
+```js
+display(seattlePlot)
+display(sanFranciscoPlot)
+display(newYorkPlot);
 ```
