@@ -1,5 +1,15 @@
 # Map of Seattle With Zipcodes
 
+<p><b>Seattle is a big and diverse city.</b> The number of businesses may be increasing steadily over the years, but the increaseis not uniformly distributed throughout the city.
+</p>
+
+<p>
+This map shows the distribution of businesses by ZIP code
+from 2017 to 2022. It provides a more informative viewpoint of the distribution of businesses with an active business license
+certificate. Also, the map includes the city of Shoreline
+as the ZIP codes 98177 98133, and 98155 cover both Seattle and Shoreline. A part of the city of Tukwila is shown as the ZIP code 98168 encompasses both Seattle and Tukwila.
+</p>
+
 ```js
 const businesses = await FileAttachment("./data/Active_Business_License_Tax_Certificate_20240711@1.csv").csv();
 ```
@@ -121,12 +131,13 @@ const voronoiMap2 = () => {
       .attr("offset", d => `${d * 100}%`) // Set the offset of each stop
       .attr("stop-color", d => colorScale(d * 100)); // Set the color of each stop
 
-    // Append a label to the legend
+
     legend.append("text")
       .attr("class", "legend-label")
       .attr("x", legendWidth / 2)
       .attr("y", -5)
       .style("text-anchor", "middle")
+      .style("color", "white")
       .text("Number of Businesses");
 
     return legend;
@@ -188,3 +199,10 @@ function display(content) {
 // Call voronoiMap2() and pass its result to display()
 display(voronoiMap2());
 ```
+
+<p> The number of businesses in this map steadily increased across all ZIP codes throughout the city and
+outlying areas from 2017 to 2019. However, in 2020, the number of businesses fell dramatically. This is largely
+due to COVID-19 and the mandated shutdown as a response.
+Unfortunately, the low number of businesses peristed through the next few years even as the region starts to
+slowly open itself again.
+</p>

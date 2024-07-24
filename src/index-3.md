@@ -5,6 +5,20 @@ toc: false
 # Chart
 
 ```js
+display(industryDropdown)
+```
+
+<p><b>Businesses</b> are considered to be a driving force behind Seattle's rapid growth. However,perhaps surprisingly,the total number of businesses has not chnaged dramatically within the decade. Shown above is a chart containing the number of active business license
+certificates within the city limits from 2017 to 2022
+respectively.
+</p>
+
+<p>To interact with the visualization, please select different sectors by using the dropdown menu below the bar chart.
+</p>
+
+
+
+```js
 const businesses = FileAttachment("./data/datachart.csv").csv()
 ```
 ```js
@@ -16,9 +30,6 @@ const industryDropdown = Inputs.select(
   [...new Set(businesses.map(b => b["NAICS Description"]))],
   { label: "Pick an industry" }
 )
-```
-```js
-display(industryDropdown)
 ```
 
 ```js
@@ -65,7 +76,6 @@ function renderChart(industry, {width} = {}) {
 
   // Render new chart
   const chart =
-
   Plot.plot({
     marks: [
       Plot.barY(data, { x: "year", y: "count", fill: "salmon" }),
@@ -74,16 +84,6 @@ function renderChart(industry, {width} = {}) {
         x: "year",
         y: "count",
         title: d => `Year: ${d.year}\nBusinesses: ${d.count}`,
-        style: {
-          fontSize: '10px',   // Customize font size
-          padding: '10px',     // Customize padding
-          maxWidth: '50px',  // Set a max width
-          backgroundColor: '#333', // Background color
-          color: '#fff',      // Text color
-          borderRadius: '4px', // Rounded corners
-          border: '1px solid #ddd', // Border styling
-          marginRight: '100px'
-        }
       })
     ],
     x: {
@@ -92,8 +92,8 @@ function renderChart(industry, {width} = {}) {
     y: {
       label: "Number of Businesses"
     },
-    width,
-    height: 700,
+    width: 800,
+    height: 800,
     marginTop: 90,
     marginBottom: 80,
   });
@@ -112,6 +112,5 @@ industryDropdown.addEventListener('change', () => {
 ```
 
 
-<div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
-  ${industryDropdown}
-</div>
+
+
