@@ -28,6 +28,7 @@
   from the earliest possible to the latest data. Home prices from the three cities were shown using this website:</p>
   <p> <a href="https://www.redfin.com/news/data-center/">Click me</a></ul>
   </p>
+</div>
 
 
 <div class="card">
