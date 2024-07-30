@@ -11,9 +11,9 @@ has changed economically. Shown below are area charts showcasing the median home
 <br>
 
 ```js
-const seattle = FileAttachment("./data/data - seattle.csv").csv()
-const sanFrancisco = FileAttachment("./data/data - san francisco.csv").csv()
-const newYorkCity = FileAttachment("./data/data - new york city.csv").csv()
+const seattle = FileAttachment("./data/data_seattle.csv").csv()
+const sanFrancisco = FileAttachment("./data/data_san_francisco.csv").csv()
+const newYorkCity = FileAttachment("./data/data_new_york_city.csv").csv()
 ```
 
 ```js

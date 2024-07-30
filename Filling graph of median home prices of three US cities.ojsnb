@@ -100,118 +100,133 @@
     "nodes": [
         {
             "id": 0,
+            "name": "",
             "value": "# Filling graph of median home prices of three US cities",
             "pinned": false,
             "mode": "md",
             "data": null,
-            "name": ""
+            "outputs": []
         },
         {
             "id": 235,
+            "name": null,
             "value": "import {addTooltips} from \"@mkfreeman/plot-tooltip\"",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 5,
-            "value": "seattle = FileAttachment(\"data - seattle.csv\").csv()",
+            "name": null,
+            "value": "seattle = FileAttachment(\"data_seattle.csv\").csv()",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 9,
-            "value": "sanFrancisco = FileAttachment(\"data - san francisco.csv\").csv()",
+            "name": null,
+            "value": "sanFrancisco = FileAttachment(\"data_san_francisco.csv\").csv()",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 11,
+            "name": null,
             "value": "newYorkCity = FileAttachment(\"data - new york city.csv\").csv()",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 94,
+            "name": null,
             "value": "// Clean and convert data\ncleanedDataSeattle = seattle.map(d => {\n  const [month, year] = d[\"Month of Period End\"].split(\"-\");\n  const numericYear = 2000 + parseInt(year); // Correctly parse the year from string year to integer 2000+17\n  const price = parseFloat(d[\"Median Sale Price\"].replace(\"$\", \"\").replace(\"K\", \"000\"));\n  //replace $100K string to 100000 float\n  return {\n    //numericYear-(month (as a date))-day 1\n    date: new Date(numericYear, new Date(Date.parse(month + \"1\")).getMonth(), 1),\n    price: price\n  };\n});\n",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 144,
+            "name": null,
             "value": "cleanedDataSanFrancisco = sanFrancisco.map(d => {\n  const [month, year] = d[\"Month of Period End\"].split(\"-\");\n  const numericYear = 2000 + parseInt(year); // Correctly parse the year\n  \n  // Parse the price, handle 'K' for thousands and 'M' for millions\n  let priceString = d[\"Median Sale Price\"];\n  let price;\n  if (priceString.includes(\",\")) {\n    price = parseFloat(priceString.replace(\"$\", \"\").replace(\",\", \"\").replace(\"K\", \"\")) * 1000;\n  } else if (priceString.includes(\"K\")) {\n    price = parseFloat(priceString.replace(\"$\", \"\").replace(\"K\", \"\")) * 1000;\n  } else {\n    price = parseFloat(priceString.replace(\"$\", \"\"));\n  }\n\n  // Parse the month and create a Date object\n  const date = new Date(numericYear, new Date(Date.parse(month + \" 1\")).getMonth(), 1);\n\n  return {\n    date: date,\n    price: price\n  };\n});\n",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 197,
+            "name": null,
             "value": "cleanedDataNewYork = newYorkCity.map(d => {\n  const [month, year] = d[\"Month of Period End\"].split(\"-\");\n  const numericYear = 2000 + parseInt(year); // Correctly parse the year\n  \n  // Parse the price, handle 'K' for thousands and 'M' for millions\n  let priceString = d[\"Median Sale Price\"];\n  let price;\n  if (priceString.includes(\",\")) {\n    price = parseFloat(priceString.replace(\"$\", \"\").replace(\",\", \"\").replace(\"K\", \"\")) * 1000;\n  } else if (priceString.includes(\"K\")) {\n    price = parseFloat(priceString.replace(\"$\", \"\").replace(\"K\", \"\")) * 1000;\n  } else {\n    price = parseFloat(priceString.replace(\"$\", \"\"));\n  }\n\n  // Parse the month and create a Date object\n  const date = new Date(numericYear, new Date(Date.parse(month + \" 1\")).getMonth(), 1);\n\n  return {\n    date: date,\n    price: price\n  };\n});",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 67,
+            "name": null,
             "value": "filteredDataSeattle = cleanedDataSeattle.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);\n",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 149,
+            "name": null,
             "value": "filteredDataSanFrancisco = cleanedDataSanFrancisco.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 151,
+            "name": null,
             "value": "filteredDataNewYork = cleanedDataNewYork.filter(d => d.date.getFullYear() >= 2012 && d.date.getFullYear() <= 2024);",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 69,
+            "name": null,
             "value": "addTooltips(\n  Plot.plot({\n  marks: [\n    Plot.lineY(filteredDataSeattle, {x: d => d.date, y: d => d.price, stroke: \"salmon\", strokeWidth: 4.0, title: (d) =>\n      `\\n Date : ${d.date} \\n Price: ${d.price}`}),\n    Plot.areaY(filteredDataSeattle, {x: d => d.date, y: d => d.price, fill: \"salmon\", fillOpacity: 0.3 })\n  ],\n  x: {\n    label: \"Year\",\n  },\n  y: {\n    label: \"Median Sale Price ($)\",\n    grid: true\n  },\n  tooltip: {\n    fill: \"red\",\n    stroke: \"blue\",\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80\n})\n);",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 140,
+            "name": null,
             "value": "addTooltips(\n  Plot.plot({\n  marks: [\n    Plot.lineY(filteredDataSanFrancisco, {x: d => d.date, y: d => d.price, stroke: \"blue\", strokeWidth: 4.0, title: (d) =>\n      `\\n Date : ${d.date} \\n Price: ${d.price}`}),\n    Plot.areaY(filteredDataSanFrancisco, {x: d => d.date, y: d => d.price, fill: \"blue\", fillOpacity: 0.3 })\n  ],\n  x: {\n    label: \"Year\",\n  },\n  y: {\n    label: \"Median Sale Price ($)\",\n    grid: true\n  },\n  tooltip: {\n    fill: \"red\",\n    stroke: \"blue\",\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80\n})\n);\n",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 142,
+            "name": null,
             "value": "addTooltips(\n  Plot.plot({\n  marks: [\n    Plot.lineY(filteredDataNewYork, {x: d => d.date, y: d => d.price, stroke: \"green\", strokeWidth: 4.0, title: (d) =>\n      `\\n Date : ${d.date} \\n Price: ${d.price}`}),\n    Plot.areaY(filteredDataNewYork, {x: d => d.date, y: d => d.price, fill: \"green\", fillOpacity: 0.3 })\n  ],\n  x: {\n    label: \"Year\",\n  },\n  y: {\n    label: \"Median Sale Price ($)\",\n    grid: true\n  },\n  tooltip: {\n    fill: \"red\",\n    stroke: \"blue\",\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80\n})\n);",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 14,
+            "name": null,
             "value": "Plot.plot({\n  marks: [\n    Plot.areaY(cleanedDataSanFrancisco, {x: d => d.date, y: d => d.price, fill: \"salmon\"})\n  ],\n  x: {\n    label: \"Year\",\n    tickFormat: d => d.getFullYear()\n  },\n  y: {\n    label: \"Median Sale Price\",\n    tickFormat: [100000],\n    grid: true\n  },\n  width: 800,\n  height: 400,\n  marginTop: 50,\n  marginBottom: 80,\n  marginLeft: 80\n});",
             "pinned": true,
             "mode": "js",
@@ -220,23 +235,25 @@
                     "mode": "none"
                 }
             },
-            "name": null
+            "outputs": []
         },
         {
             "id": 47,
+            "name": null,
             "value": "function getYear(house) {\n    return house[\"Month of Period End\"].substring(3, 4);\n}",
             "pinned": true,
             "mode": "js",
             "data": null,
-            "name": null
+            "outputs": []
         },
         {
             "id": 252,
-            "value": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Interactive Plot with Delayed Tooltips</title>\n  <script src=\"https://d3js.org/d3.v6.min.js\"></script>\n  <style>\n    .tooltip {\n      position: absolute;\n      text-align: left;\n      width: auto;\n      height: auto;\n      padding: 10px;\n      font: 12px sans-serif;\n      background: lightsteelblue;\n      border: 1px solid #ddd;\n      border-radius: 5px;\n      pointer-events: none;\n      opacity: 0;\n      transition: opacity 0.2s;\n    }\n  </style>\n</head>\n<body>\n  <div id=\"plot\"></div>\n  <div class=\"tooltip\"></div>\n\n  <script type=\"module\">\n    import * as Plot from \"https://cdn.jsdelivr.net/npm/@observablehq/plot@0.5.1/+esm\";\n    import { select, csv } from \"https://cdn.jsdelivr.net/npm/d3@6/+esm\";\n\n    // Load CSV data\n    FileAttachment(\"data - new york city.csv\").csv().then(data => {\n      // Parse date and price fields\n      data.forEach(d => {\n        d.date = new Date(d.date);\n        d.price = +d.price;\n      });\n\n      const plot = Plot.plot({\n        marks: [\n          Plot.lineY(data, {x: d => d.date, y: d => d.price, stroke: \"green\", strokeWidth: 4.0}),\n          Plot.areaY(data, {x: d => d.date, y: d => d.price, fill: \"green\", fillOpacity: 0.3})\n        ],\n        x: {label: \"Year\"},\n        y: {label: \"Median Sale Price ($)\", grid: true},\n        width: 800,\n        height: 400,\n        marginTop: 50,\n        marginBottom: 80,\n        marginLeft: 80\n      });\n\n      document.getElementById('plot').append(plot);\n\n      const tooltip = select(\".tooltip\");\n\n      select(plot)\n        .selectAll(\"circle\")\n        .data(data)\n        .enter()\n        .append(\"circle\")\n        .attr(\"r\", 5)\n        .attr(\"cx\", d => plot.scales.x(d.date))\n        .attr(\"cy\", d => plot.scales.y(d.price))\n        .style(\"fill\", \"transparent\")\n        .style(\"pointer-events\", \"all\")\n        .on(\"mouseover\", function(event, d) {\n          setTimeout(() => {\n            tooltip.transition().duration(200).style(\"opacity\", 1);\n              .style(\"left\", (event.pageX + 5) + \"px\")\n              .style(\"top\", (event.pageY - 28) + \"px\");\n          }, 2000);\n        })\n        .on(\"mouseout\", function() {\n          tooltip.transition().duration(200).style(\"opacity\", 0);\n        });\n    });\n  </script>\n</body>\n</html>\n",
+            "name": "",
+            "value": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Interactive Plot with Delayed Tooltips</title>\n  <script src=\"https://d3js.org/d3.v6.min.js\"></script>\n  <style>\n    .tooltip {\n      position: absolute;\n      text-align: left;\n      width: auto;\n      height: auto;\n      padding: 10px;\n      font: 12px sans-serif;\n      background: lightsteelblue;\n      border: 1px solid #ddd;\n      border-radius: 5px;\n      pointer-events: none;\n      opacity: 0;\n      transition: opacity 0.2s;\n    }\n  </style>\n</head>\n<body>\n  <div id=\"plot\"></div>\n  <div class=\"tooltip\"></div>\n\n  <script type=\"module\">\n    import * as Plot from \"https://cdn.jsdelivr.net/npm/@observablehq/plot@0.5.1/+esm\";\n    import { select, csv } from \"https://cdn.jsdelivr.net/npm/d3@6/+esm\";\n\n    // Load CSV data\n    FileAttachment(\"data_new_york_city.csv\").csv().then(data => {\n      // Parse date and price fields\n      data.forEach(d => {\n        d.date = new Date(d.date);\n        d.price = +d.price;\n      });\n\n      const plot = Plot.plot({\n        marks: [\n          Plot.lineY(data, {x: d => d.date, y: d => d.price, stroke: \"green\", strokeWidth: 4.0}),\n          Plot.areaY(data, {x: d => d.date, y: d => d.price, fill: \"green\", fillOpacity: 0.3})\n        ],\n        x: {label: \"Year\"},\n        y: {label: \"Median Sale Price ($)\", grid: true},\n        width: 800,\n        height: 400,\n        marginTop: 50,\n        marginBottom: 80,\n        marginLeft: 80\n      });\n\n      document.getElementById('plot').append(plot);\n\n      const tooltip = select(\".tooltip\");\n\n      select(plot)\n        .selectAll(\"circle\")\n        .data(data)\n        .enter()\n        .append(\"circle\")\n        .attr(\"r\", 5)\n        .attr(\"cx\", d => plot.scales.x(d.date))\n        .attr(\"cy\", d => plot.scales.y(d.price))\n        .style(\"fill\", \"transparent\")\n        .style(\"pointer-events\", \"all\")\n        .on(\"mouseover\", function(event, d) {\n          setTimeout(() => {\n            tooltip.transition().duration(200).style(\"opacity\", 1);\n              .style(\"left\", (event.pageX + 5) + \"px\")\n              .style(\"top\", (event.pageY - 28) + \"px\");\n          }, 2000);\n        })\n        .on(\"mouseout\", function() {\n          tooltip.transition().duration(200).style(\"opacity\", 0);\n        });\n    });\n  </script>\n</body>\n</html>\n",
             "pinned": false,
             "mode": "html",
             "data": null,
-            "name": ""
+            "outputs": []
         }
     ],
     "resolutions": [
