@@ -38,5 +38,5 @@
   <p> Please feel free to check out my other projects
   through my personal website portfolio:
   </p>
-  <a href="https://adthai.pages.dev/">Click me</a>
+  <a href="https://andythai-portfolio.pages.dev/">Click me</a>
 </div>
